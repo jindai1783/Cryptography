@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crypt</title>
+</head>
+<body>
+  <div>
+    This is ciphered text - 
+    <span id="ciphered"></span>
+  </div>
+  <div>
+    This is deciphered text - 
+    <span id="deciphered"></span>
+  </div>
+  <div>
+    This is when we enter a wrong key - 
+    <span id="wrongone"></span>
+  </div>
+
+  <script type="text/javascript" src="http://cryptojs.altervista.org/api/functions_cryptography.js"></script>  
+  <script type="text/javascript">  
+    
+    var Crypt = new Crypt();  // constructor  
+      
+    /*** encrypt */  
+    var ciphertext = Crypt.AES.encrypt("Hello, I am going to create a terrorist attack", "Meshee");  
+    // XluzvcUwZFU=3MD2vMz8PHySPJlKZiWjJg==1Gv6n6Tv8azr  
+      
+    /*** decrypt */  
+    var plaintext  = Crypt.AES.decrypt(ciphertext, "Meshee");
+
+    var wrongkey = Crypt.AES.decrypt(ciphertext, "Meshew");
+
+    document.getElementById("ciphered").innerHTML = ciphertext;
+
+    document.getElementById("deciphered").innerHTML = plaintext;
+
+    document.getElementById("wrongone").innerHTML = wrongkey;
+    
+  </script>
+</body>
+</html>
