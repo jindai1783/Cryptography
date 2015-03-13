@@ -20,21 +20,12 @@
   <script type="text/javascript" src="http://cryptojs.altervista.org/api/functions_cryptography.js"></script>  
   <script type="text/javascript">  
     
-    var Crypt = new Crypt();  // constructor  
-      
-    /*** encrypt */  
-    var ciphertext = Crypt.AES.encrypt("Hello, this is a secret  which I don't want to share", "Meshee");  
-    // XluzvcUwZFU=3MD2vMz8PHySPJlKZiWjJg==1Gv6n6Tv8azr  
-      
-    /*** decrypt */  
-    var plaintext  = Crypt.AES.decrypt(ciphertext, "Meshee");
-
+    var Crypt = new Crypt();
+    var ciphertext = Crypt.AES.encrypt("Hello, this is a secret  which I don't want to share", "Meshee");
+    var plaintext = Crypt.AES.decrypt(ciphertext, "Meshee");
     var wrongkey = Crypt.AES.decrypt(ciphertext, "Meshew");
-
     document.getElementById("ciphered").innerHTML = ciphertext;
-
     document.getElementById("deciphered").innerHTML = plaintext;
-
     document.getElementById("wrongone").innerHTML = wrongkey;
     
   </script>
